@@ -6,17 +6,14 @@
 %global __provides_exclude ^(%{_privatelibs})$
 %global __requires_exclude ^(%{_privatelibs})$
 
-%define rel 4
-
 Name:           carla
-Version:        1.9.14
-Release:        %mkrel -c git20190227 %{rel}
+Version:        2.2.0
+Release:        1
 Summary:        An audio plugin host
 License:        GPLv2+
 Group:          Sound/Utilities
 Url:            http://kxstudio.linuxaudio.org/Applications:Carla
-#from https://github.com/falkTX/Carla commit 737a0b0f
-Source:         Carla-%{version}+git20190227.737a0b0f.tar.xz
+Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{name}-%{version}.tar.gz
 Patch0:         python-version.patch
 Patch1:         desktop-categories.patch
 Patch2:         carla-systemlibs.patch
@@ -25,7 +22,7 @@ Patch4:         0001-Add-missing-QPainterPath-include.patch
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  pkgconfig(libpulse)
-BuildRequires:  pkgconfig(python3)
+BuildRequires:  pkgconfig(python)
 BuildRequires:  python3-qt5-devel
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)

@@ -15,11 +15,6 @@ License:        GPLv2+
 Group:          Sound/Utilities
 Url:            http://kxstudio.linuxaudio.org/Applications:Carla
 Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{oname}-%{version}.tar.gz
-#Patch0:         python-version.patch
-#Patch1:         desktop-categories.patch
-#Patch2:         carla-systemlibs.patch
-#Patch3:         carla-1.9.12-added-mxml-3.0-compatility-to-XMLwrapper.patch
-#Patch4:         0001-Add-missing-QPainterPath-include.patch
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  pkgconfig(libpulse)
@@ -71,11 +66,17 @@ It further supports bridging Window plugins using Wine.
 %{_bindir}/carla-rack
 %{_bindir}/carla-settings
 %{_bindir}/carla-single
+%{_bindir}/carla-jack-patchbayplugin
+%{_bindir}/carla-osc-gui
 %{_libdir}/carla/
 %{_libdir}/lv2/carla.lv2/
 %{_datadir}/carla/
 %{_datadir}/applications/carla.desktop
 %{_datadir}/applications/carla-control.desktop
+%{_datadir}/applications/carla-jack-multi.desktop
+%{_datadir}/applications/carla-jack-single.desktop
+%{_datadir}/applications/carla-patchbay.desktop
+%{_datadir}/applications/carla-rack.desktop
 %{_datadir}/icons/hicolor/*/apps/carla*.*
 %{_datadir}/mime/packages/carla.xml
 
@@ -122,6 +123,3 @@ make features
 %install
 
 %make_install  -- PREFIX="%{_prefix}" LIBDIR="%{_libdir}" PYVER="%{python3_version}"
-# Move arch depended files (wrong installed)
-#mv %{buildroot}%{_datadir}/carla/resources/zynaddsubfx-ui %{buildroot}%{_libdir}/carla
-#ln -s %{_libdir}/carla/zynaddsubfx-ui %{buildroot}%{_datadir}/carla/resources/zynaddsubfx-ui

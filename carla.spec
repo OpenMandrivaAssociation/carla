@@ -29,6 +29,8 @@ BuildRequires:  pkgconfig(sndfile)
 BuildRequires:  pkgconfig(flac)
 BuildRequires:  pkgconfig(vorbisenc)
 
+BuildRequires:  ffmpeg-devel
+BuildRequires:  pkgconfig(libmagic)
 BuildRequires:  file
 BuildRequires:  python-rdflib
 

@@ -109,7 +109,7 @@ CarlaPatchbay, CarlaRackFX, and CarlaRack.
 
 
 %prep
-%setup -q -n Carla-1.9.14+git20190227.737a0b0f
+%setup -q -n Carla-2.2.0
 %autopatch -p1
 find . -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python3}|'
 

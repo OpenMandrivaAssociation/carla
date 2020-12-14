@@ -123,5 +123,5 @@ make features
 
 %make_install  -- PREFIX="%{_prefix}" LIBDIR="%{_libdir}" PYVER="%{python3_version}"
 # Move arch depended files (wrong installed)
-mv %{buildroot}%{_datadir}/carla/resources/zynaddsubfx-ui %{buildroot}%{_libdir}/carla
-ln -s %{_libdir}/carla/zynaddsubfx-ui %{buildroot}%{_datadir}/carla/resources/zynaddsubfx-ui
+#mv %{buildroot}%{_datadir}/carla/resources/zynaddsubfx-ui %{buildroot}%{_libdir}/carla
+#ln -s %{_libdir}/carla/zynaddsubfx-ui %{buildroot}%{_datadir}/carla/resources/zynaddsubfx-ui

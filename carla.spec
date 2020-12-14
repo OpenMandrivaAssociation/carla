@@ -24,7 +24,7 @@ Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{oname}-%{v
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(python)
-BuildRequires:  python3-qt5-devel
+BuildRequires:  python-qt5-devel
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Network)
@@ -34,16 +34,15 @@ BuildRequires:  pkgconfig(flac)
 BuildRequires:  pkgconfig(vorbisenc)
 
 BuildRequires:  file
-BuildRequires:  python3-rdflib
+BuildRequires:  python-rdflib
 
 # for extra native plugins
 BuildRequires:  pkgconfig(fftw3)
 BuildRequires:  pkgconfig(fluidsynth)
 BuildRequires:  pkgconfig(libprojectM)
-BuildRequires:  pkgconfig(ntk)
+#BuildRequires:  pkgconfig(ntk)
 BuildRequires:  pkgconfig(zlib)
 # for plugin GUIs
-BuildRequires:  qt4-devel
 BuildRequires:  pkgconfig(gtk+-2.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(x11)

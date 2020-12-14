@@ -24,6 +24,7 @@ Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{oname}-%{v
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(python)
+BuildRequires:  python-sip-qt5
 BuildRequires:  python-qt5-devel
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)

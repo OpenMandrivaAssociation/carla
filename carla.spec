@@ -5,6 +5,7 @@
 %global _privatelibs libjack[.]so.*
 %global __provides_exclude ^(%{_privatelibs})$
 %global __requires_exclude ^(%{_privatelibs})$
+%define oname Carla
 
 Name:           carla
 Version:        2.2.0
@@ -13,7 +14,7 @@ Summary:        An audio plugin host
 License:        GPLv2+
 Group:          Sound/Utilities
 Url:            http://kxstudio.linuxaudio.org/Applications:Carla
-Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{oname}-%{version}.tar.gz
 Patch0:         python-version.patch
 Patch1:         desktop-categories.patch
 Patch2:         carla-systemlibs.patch

@@ -15,11 +15,11 @@ License:        GPLv2+
 Group:          Sound/Utilities
 Url:            http://kxstudio.linuxaudio.org/Applications:Carla
 Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{oname}-%{version}.tar.gz
-Patch0:         python-version.patch
-Patch1:         desktop-categories.patch
-Patch2:         carla-systemlibs.patch
-Patch3:         carla-1.9.12-added-mxml-3.0-compatility-to-XMLwrapper.patch
-Patch4:         0001-Add-missing-QPainterPath-include.patch
+#Patch0:         python-version.patch
+#Patch1:         desktop-categories.patch
+#Patch2:         carla-systemlibs.patch
+#Patch3:         carla-1.9.12-added-mxml-3.0-compatility-to-XMLwrapper.patch
+#Patch4:         0001-Add-missing-QPainterPath-include.patch
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  pkgconfig(libpulse)

@@ -97,6 +97,7 @@ Carla's several APIs.
 %{_libdir}/pkgconfig/carla-native-plugin.pc
 %{_libdir}/pkgconfig/carla-standalone.pc
 %{_libdir}/pkgconfig/carla-utils.pc
+%{_libdir}/pkgconfig/carla-host-plugin.pc
 
 #--------------------------------------------------------------------
 %package vst

@@ -114,7 +114,7 @@ CarlaPatchbay, CarlaRackFX, and CarlaRack.
 
 
 %prep
-%setup -q -n Carla-2.3.1
+%setup -q -n Carla-%{version}
 %autopatch -p1
 find . -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python3}|'
 

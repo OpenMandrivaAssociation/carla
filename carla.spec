@@ -8,7 +8,7 @@
 %define oname Carla
 
 Name:           carla
-Version:        2.4.0
+Version:        2.4.1
 Release:        1
 Summary:        An audio plugin host
 License:        GPLv2+

@@ -81,6 +81,7 @@ It further supports bridging Window plugins using Wine.
 %{_datadir}/applications/carla-rack.desktop
 %{_datadir}/icons/hicolor/*/apps/carla*.*
 %{_datadir}/mime/packages/carla.xml
+%{_datadir}/appdata/studio.kx.carla.appdata.xml
 
 #--------------------------------------------------------------------
 %package devel

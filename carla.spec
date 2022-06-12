@@ -120,6 +120,8 @@ CarlaPatchbay, CarlaRackFX, and CarlaRack.
 find . -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python3}|'
 
 %build
+export CC=gcc
+export CXX=g++
 %set_build_flags
 make features
 %make_build NOOPT=true

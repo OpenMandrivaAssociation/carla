@@ -9,7 +9,7 @@
 
 Name:           carla
 Version:        2.5.4
-Release:        1
+Release:        2
 Summary:        An audio plugin host
 License:        GPLv2+
 Group:          Sound/Utilities

@@ -13,7 +13,7 @@ Release:        1
 Summary:        An audio plugin host
 License:        GPLv2+
 Group:          Sound/Utilities
-Url:            http://kxstudio.linuxaudio.org/Applications:Carla
+Url:            https://kxstudio.linuxaudio.org/Applications:Carla
 Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{oname}-%{version}.tar.gz
 
 BuildRequires:  pkgconfig(alsa)

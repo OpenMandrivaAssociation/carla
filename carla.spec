@@ -8,13 +8,15 @@
 %define oname Carla
 
 Name:           carla
-Version:        2.5.9
+Version:        2.5.9~20241103
 Release:        1
 Summary:        An audio plugin host
 License:        GPLv2+
 Group:          Sound/Utilities
 Url:            https://kxstudio.linuxaudio.org/Applications:Carla
-Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{oname}-%{version}.tar.gz
+#Source0:        https://github.com/falkTX/Carla/archive/v%{version}/%{oname}-%{version}.tar.gz
+# Use git for now (needed by Zrythm) until 2.6.0 version is released
+Source0:        Carla-%{version}.tar.gz
 
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  pkgconfig(libpulse)

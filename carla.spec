@@ -9,7 +9,7 @@
 
 Name:           carla
 Version:        2.5.9~20241103
-Release:        1
+Release:        2
 Summary:        An audio plugin host
 License:        GPLv2+
 Group:          Sound/Utilities
@@ -51,6 +51,8 @@ BuildRequires:  pkgconfig(gig)
 BuildRequires:  pkgconfig(liblo)
 BuildRequires:  pkgconfig(mxml)
 BuildRequires:  pkgconfig(pkg-config)
+
+Requires:  python-qt5
 
 %description
 Carla is an audio plugin host, with support for many audio drivers

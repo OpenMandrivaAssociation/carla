@@ -1,0 +1,40 @@
+diff -rupN Carla-2.5.10.old/data/pkgconfig/carla-host-plugin.pc Carla-2.5.10/data/pkgconfig/carla-host-plugin.pc
+--- Carla-2.5.10.old/data/pkgconfig/carla-host-plugin.pc	2025-07-31 19:31:38.000000000 +0200
++++ Carla-2.5.10/data/pkgconfig/carla-host-plugin.pc	2025-08-14 15:30:25.938679338 +0200
+@@ -6,5 +6,5 @@ carla_libdir=${libdir}/carla
+ Name: carla-host-plugin
+ Version: X-VERSION-X
+ Description: Carla Host as Native Plugin
+-Libs: -Wl,-rpath,${carla_libdir} -L${carla_libdir} -lcarla_host-plugin
++Libs: -L${carla_libdir} -lcarla_host-plugin
+ Cflags: -I${includedir}/carla -I${includedir}/carla/includes
+diff -rupN Carla-2.5.10.old/data/pkgconfig/carla-native-plugin.pc Carla-2.5.10/data/pkgconfig/carla-native-plugin.pc
+--- Carla-2.5.10.old/data/pkgconfig/carla-native-plugin.pc	2025-07-31 19:31:38.000000000 +0200
++++ Carla-2.5.10/data/pkgconfig/carla-native-plugin.pc	2025-08-14 15:30:38.154826603 +0200
+@@ -5,5 +5,5 @@ includedir=X-INCLUDEDIR-X
+ Name: carla-native-plugin
+ Version: X-VERSION-X
+ Description: Carla Native Plugin
+-Libs: -Wl,-rpath,${libdir}/carla -L${libdir}/carla -lcarla_native-plugin
++Libs: -L${libdir}/carla -lcarla_native-plugin
+ Cflags: -I${includedir}/carla -I${includedir}/carla/includes
+diff -rupN Carla-2.5.10.old/data/pkgconfig/carla-standalone.pc Carla-2.5.10/data/pkgconfig/carla-standalone.pc
+--- Carla-2.5.10.old/data/pkgconfig/carla-standalone.pc	2025-07-31 19:31:38.000000000 +0200
++++ Carla-2.5.10/data/pkgconfig/carla-standalone.pc	2025-08-14 15:30:47.905103846 +0200
+@@ -5,5 +5,5 @@ includedir=X-INCLUDEDIR-X
+ Name: carla-standalone
+ Version: X-VERSION-X
+ Description: Carla Host Standalone
+-Libs: -Wl,-rpath,${libdir}/carla -L${libdir}/carla -lcarla_standalone2
++Libs: -L${libdir}/carla -lcarla_standalone2
+ Cflags: -I${includedir}/carla -I${includedir}/carla/includes
+diff -rupN Carla-2.5.10.old/data/pkgconfig/carla-utils.pc Carla-2.5.10/data/pkgconfig/carla-utils.pc
+--- Carla-2.5.10.old/data/pkgconfig/carla-utils.pc	2025-07-31 19:31:38.000000000 +0200
++++ Carla-2.5.10/data/pkgconfig/carla-utils.pc	2025-08-14 15:30:13.124330170 +0200
+@@ -5,5 +5,5 @@ includedir=X-INCLUDEDIR-X
+ Name: carla-utils
+ Version: X-VERSION-X
+ Description: Carla Host Utilities
+-Libs: -Wl,-rpath,${libdir}/carla -L${libdir}/carla -lcarla_utils
++Libs: -L${libdir}/carla -lcarla_utils
+ Cflags: -I${includedir}/carla -I${includedir}/carla/includes -I${includedir}/carla/utils

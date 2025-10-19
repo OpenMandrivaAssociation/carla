@@ -8,16 +8,19 @@
 %define	__python %{__python3}
 %define	oname Carla
 
+%define git .20251009
+
 Summary:		An audio plugin host
 Name:	carla
-Version:		2.5.10
-Release:		1
+Version:		2.5.10 %dnl Please don't update to the next stable version 2.5.11 etc, but use git snapshot instead. At least until 2.6.0 is released. This is necessary for other applications to work.
+
+Release:		1%{git}
 License:		GPLv2+
 Group:	Sound
 Url:	https://kxstudio.linuxaudio.org/Applications:Carla
-Source0:	https://github.com/falkTX/Carla/archive/%{oname}-%{version}.tar.gz
+#Source0:	https://github.com/falkTX/Carla/archive/%{oname}-%{version}.tar.gz
 # Use git for now (needed by Zrythm) until 2.6.0 version is released
-#Source0:	Carla-%%{version}.tar.gz
+https://github.com/falkTX/Carla/archive/refs/heads/Carla-main.tar.gz/#Carla-%{version}-%{git}.tar.gz
 Patch0:	carla-2.5.10-drop-rpath-from-pkgconfig-files.patch
 BuildRequires:		chrpath
 BuildRequires:		file
@@ -129,7 +132,7 @@ CarlaPatchbay, CarlaRackFX, and CarlaRack.
 #--------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n %{oname}-%{version}
+%autosetup -p1 -n %{oname}-main
 
 # Fix python shebangs
 find . -name '*.py' | xargs sed -i '1s|^#!/usr/bin/env python3|#!%{__python}|'

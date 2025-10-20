@@ -8,19 +8,19 @@
 %define	__python %{__python3}
 %define	oname Carla
 
-%define git .20251009
+%define git 20251009
 
 Summary:		An audio plugin host
 Name:	carla
 Version:		2.5.10 %dnl Please don't update to the next stable version 2.5.11 etc, but use git snapshot instead. At least until 2.6.0 is released. This is necessary for other applications to work.
 
-Release:		1%{git}
+Release:		1.%{git}
 License:		GPLv2+
 Group:	Sound
 Url:	https://kxstudio.linuxaudio.org/Applications:Carla
 #Source0:	https://github.com/falkTX/Carla/archive/%{oname}-%{version}.tar.gz
 # Use git for now (needed by Zrythm) until 2.6.0 version is released
-Source0:  https://github.com/falkTX/Carla/archive/refs/heads/Carla-main.tar.gz/#Carla-%{version}-%{git}.tar.gz
+Source0:  Carla-%{version}-%{git}.tar.gz
 Patch0:	carla-2.5.10-drop-rpath-from-pkgconfig-files.patch
 BuildRequires:		chrpath
 BuildRequires:		file

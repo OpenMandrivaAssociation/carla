@@ -154,7 +154,6 @@ make features
 chmod +x %{buildroot}%{_datadir}/%{name}/widgets/*.py
 chmod -x %{buildroot}%{_datadir}/%{name}/widgets/__init__.py
 chmod +x %{buildroot}%{_datadir}/%{name}/patchcanvas/*.py
-chmod -x %{buildroot}%{_datadir}/%{name}/modgui/__init__.py
 chmod +x %{buildroot}%{_datadir}/%{name}/externalui.py
 chmod +x %{buildroot}%{_datadir}/%{name}/ladspa_rdf.py
 chmod +x %{buildroot}%{_datadir}/%{name}/%{name}

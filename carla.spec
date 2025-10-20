@@ -20,7 +20,7 @@ Group:	Sound
 Url:	https://kxstudio.linuxaudio.org/Applications:Carla
 #Source0:	https://github.com/falkTX/Carla/archive/%{oname}-%{version}.tar.gz
 # Use git for now (needed by Zrythm) until 2.6.0 version is released
-https://github.com/falkTX/Carla/archive/refs/heads/Carla-main.tar.gz/#Carla-%{version}-%{git}.tar.gz
+Source0:  https://github.com/falkTX/Carla/archive/refs/heads/Carla-main.tar.gz/#Carla-%{version}-%{git}.tar.gz
 Patch0:	carla-2.5.10-drop-rpath-from-pkgconfig-files.patch
 BuildRequires:		chrpath
 BuildRequires:		file

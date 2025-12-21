@@ -22,6 +22,7 @@ Url:	https://kxstudio.linuxaudio.org/Applications:Carla
 # Use git for now (needed by Zrythm) until 2.6.0 version is released
 Source0:  Carla-%{version}-%{git}.tar.gz
 Patch0:	carla-2.5.10-drop-rpath-from-pkgconfig-files.patch
+BuildRequires:	make
 BuildRequires:		chrpath
 BuildRequires:		file
 BuildRequires:		python-rdflib

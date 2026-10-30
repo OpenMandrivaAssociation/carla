@@ -1,0 +1,20 @@
+diff -rupN Carla-2.5.10-20260319.old/source/Makefile.mk Carla-2.5.10-20260319/source/Makefile.mk
+--- Carla-2.5.10-20260319.old/source/Makefile.mk	2026-10-27 20:09:06.639620500 +0100
++++ Carla-2.5.10-20260319/source/Makefile.mk	2026-10-30 14:06:56.844300522 +0100
+@@ -84,11 +84,11 @@ BASE_FLAGS += -DNDEBUG $(BASE_OPTS) -fvi
+ CXXFLAGS   += -fvisibility-inlines-hidden
+ endif
+ 
+-ifneq ($(MACOS_OR_WASM_OR_WINDOWS),true)
+-ifneq ($(BSD),true)
+-BASE_FLAGS += -fno-gnu-unique
+-endif
+-endif
++#ifneq ($(MACOS_OR_WASM_OR_WINDOWS),true)
++#ifneq ($(BSD),true)
++#BASE_FLAGS += -fno-gnu-unique
++#endif
++#endif
+ 
+ ifeq ($(WITH_LTO),true)
+ BASE_FLAGS += -fno-strict-aliasing -flto

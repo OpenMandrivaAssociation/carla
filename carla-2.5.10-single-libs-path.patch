@@ -1,0 +1,15 @@
+diff -rupN Carla-2.5.10-20260319.old/data/carla-single Carla-2.5.10-20260319/data/carla-single
+--- Carla-2.5.10-20260319.old/data/carla-single	2026-10-27 20:09:06.614821000 +0100
++++ Carla-2.5.10-20260319/data/carla-single	2026-10-28 18:01:07.700226178 +0100
+@@ -25,9 +25,9 @@ import sys
+ # --------------------------------------------------------------------------------------------------------
+ # Setup
+ 
+-INSTALL_PREFIX = "X-PREFIX-X"
++INSTALL_PREFIX = "/usr"
+ 
+-CARLA_LIBDIR = os.path.join(INSTALL_PREFIX, "lib", "carla")
++CARLA_LIBDIR = os.path.join(INSTALL_PREFIX, "lib64", "carla")
+ CARLA_RESDIR = os.path.join(INSTALL_PREFIX, "share", "carla", "resources")
+ 
+ # --------------------------------------------------------------------------------------------------------

@@ -8,22 +8,25 @@
 %define	__python %{__python3}
 %define	oname Carla
 
-%define git 20251009
+%define git 20260319
 
 Summary:		An audio plugin host
 Name:	carla
+# Really: 2.5.91
 Version:		2.5.10 %dnl Please don't update to the next stable version 2.5.11 etc, but use git snapshot instead. At least until 2.6.0 is released. This is necessary for other applications to work.
-
 Release:		1.%{git}
-License:		GPLv2+
+License:		GPL-2.0-or-later
 Group:	Sound
 Url:	https://kxstudio.linuxaudio.org/Applications:Carla
-#Source0:	https://github.com/falkTX/Carla/archive/%{oname}-%{version}.tar.gz
+#Source0:	https://github.com/falkTX/Carla/archive/%%{oname}-%%{version}.tar.gz
 # Use git for now (needed by Zrythm) until 2.6.0 version is released
-Source0:  Carla-%{version}-%{git}.tar.gz
+Source0:  Carla-%{version}-%{git}.tar.xz
 Patch0:	carla-2.5.10-drop-rpath-from-pkgconfig-files.patch
-BuildRequires:	make
+Patch1:	carla-2.5.10-single-libs-path.patch
+Patch2:	carla-2.5.10-drop-unknown-compiler-option.patch
+BuildRequires:		make
 BuildRequires:		chrpath
+BuildRequires:		coreutils
 BuildRequires:		file
 BuildRequires:		python-rdflib
 BuildRequires:		python-sip-qt5
@@ -37,6 +40,8 @@ BuildRequires:		pkgconfig(python)
 BuildRequires:		pkgconfig(Qt5Core)
 BuildRequires:		pkgconfig(Qt5Gui)
 BuildRequires:		pkgconfig(Qt5Network)
+BuildRequires:		pkgconfig(Qt5OpenGL)
+BuildRequires:		pkgconfig(Qt5PrintSupport)
 BuildRequires:		pkgconfig(Qt5Widgets)
 BuildRequires:		pkgconfig(sdl)
 BuildRequires:		pkgconfig(sdl2)
@@ -84,6 +89,8 @@ plus GIG, SF2 and SFZ sounds banks.
 %{_bindir}/%{name}-settings
 %{_bindir}/%{name}-single
 %{_bindir}/%{name}-osc-gui
+%{_libdir}/libcarla_standalone2.so
+%{_libdir}/libcarla_utils.so
 %{_libdir}/%{name}/
 %{_libdir}/lv2/%{name}.lv2/
 %{_datadir}/%{name}/
@@ -133,16 +140,16 @@ CarlaPatchbay, CarlaRackFX, and CarlaRack.
 #--------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n %{oname}-main
+%autosetup -p1 -n Carla-%{version}-%{git}
 
 # Fix python shebangs
 find . -name '*.py' | xargs sed -i '1s|^#!/usr/bin/env python3|#!%{__python}|'
 
+# FIx FSF address
+sed -i 's/51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA/31 Milk Street, # 960789, Boston, MA 02196, USA/g' doc/GPL.txt
+
 
 %build
-# Avoid "unknown argument" errors
-export CC=gcc
-export CXX=g++
 %set_build_flags
 make features
 %make_build NOOPT=true
@@ -160,14 +167,28 @@ chmod +x %{buildroot}%{_datadir}/%{name}/ladspa_rdf.py
 chmod +x %{buildroot}%{_datadir}/%{name}/%{name}
 chmod +x %{buildroot}%{_datadir}/%{name}/%{name}_*
 chmod +x %{buildroot}%{_datadir}/%{name}/%{name}-*
+chmod +x %{buildroot}%{_datadir}/%{name}/common/__init__.py
+chmod +x %{buildroot}%{_datadir}/%{name}/qt_compat.py
+chmod +x %{buildroot}%{_datadir}/%{name}/qt_config.py
+chmod +x %{buildroot}%{_datadir}/%{name}/utils/__init__.py
+chmod +x %{buildroot}%{_datadir}/%{name}/utils/qsafesettings.py
 
 # Fix remaining env shebangs
 sed -i '1 s,^#!/usr/bin/env python3,#!%{__python},' %{buildroot}%{_bindir}/carla-single
 sed -i '1 s,^#!/usr/bin/env python3,#!%{__python},' %{buildroot}%{_datadir}/%{name}/carla
 sed -i '1 s,^#!/usr/bin/env python3,#!%{__python},' %{buildroot}%{_datadir}/%{name}/carla-*
+sed -i '1 s,^#!/usr/bin/env python3,#!%{__python},' %{buildroot}%{_datadir}/%{name}/qt_config.py
 sed -i '1 s,^#!/usr/bin/env python3,#!%{__python},' %{buildroot}%{_datadir}/%{name}/resources/*-ui
 sed -i '1 s,^#!/usr/bin/env python3,#!%{__python},' %{buildroot}%{_datadir}/%{name}/resources/carla-*
 sed -i '1 s,^#!/usr/bin/env python,#!%{__python},' %{buildroot}%{_datadir}/%{name}/widgets/paramspinbox.py
 
 # Fix rogue rpath
 chrpath -d %{buildroot}%{_libdir}/%{name}/libcarla_standalone2.so
+chrpath -d %{buildroot}%{_libdir}/%{name}/libcarla_frontend.so
+
+# FIXME: Workaround binary not finding needed libraries
+pushd %{buildroot}%{_libdir}
+	ln -s carla/libcarla_standalone2.so libcarla_standalone2.so
+	ln -s carla/libcarla_utils.so libcarla_utils.so
+popd
+	
